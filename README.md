@@ -1,2 +1,2 @@
 # sistemas-operativos
-Operative Sistems class
+Operative Systems class
