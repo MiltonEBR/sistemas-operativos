@@ -20,13 +20,15 @@ main(void)
   dup(0);  // stderr
 
   for(;;){
-    printf(1, "init: starting sh\n");
+    printf(1, "¡A empezar el sh!\n");
     pid = fork();
     if(pid < 0){
       printf(1, "init: fork failed\n");
       exit();
     }
     if(pid == 0){
+	  //1) Se quedó ciclado con "ls", imprimiendo todo el directorio actual
+	  //2) Cuando ponemos "nohayprograma" el exec falla, por lo tanto, se imprime la línea de error debajo del exec y se reinicia infinitamente el proceso intentando ejecutarlo.
       exec("sh", argv);
       printf(1, "init: exec sh failed\n");
       exit();
